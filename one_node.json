@@ -1,0 +1,87 @@
+{
+  "nodes": [
+    {
+      "id": "213",
+      "label": "213",
+      "type": "Stress_Status",
+      "labels": [
+        "Stress_Status"
+      ],
+      "properties": {
+        "Status": "large"
+      },
+      "color": "red",
+      "fx": 0.2,
+      "fy": 0.0,
+      "fz": 500.0
+    },
+    {
+      "id": "5",
+      "label": "6",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "6"
+      },
+      "color": "yellow",
+      "fx": -0.2676241518056278,
+      "fy": 1.9946969469067253,
+      "fz": 0.0
+    },
+    {
+      "id": "133",
+      "label": "133",
+      "type": "Shape_Parameters",
+      "labels": [
+        "Shape_Parameters"
+      ],
+      "properties": {
+        "S1_LongMajorAxis": "S14",
+        "S2_ShortMajorAxis": "S22",
+        "A_Area": "A2"
+      },
+      "color": "blue",
+      "fx": -5.398476946786417,
+      "fy": -7.028428093014238,
+      "fz": -500.0
+    },
+    {
+      "id": "183",
+      "label": "183",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C4",
+        "R_RotationAngle": "R3"
+      },
+      "color": "green",
+      "fx": -6.41412690790382,
+      "fy": 10.625934503393083,
+      "fz": -750.0
+    }
+  ],
+  "links": [
+    {
+      "source": "5",
+      "target": "133",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "5",
+      "target": "183",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "5",
+      "target": "213",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    }
+  ]
+}

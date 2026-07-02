@@ -1,0 +1,1364 @@
+{
+  "nodes": [
+    {
+      "id": "1029",
+      "label": "921",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "921"
+      },
+      "color": "yellow",
+      "fx": 3.561739141690105,
+      "fy": 10.62447694289698,
+      "fz": 0.0
+    },
+    {
+      "id": "1034",
+      "label": "926",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "926"
+      },
+      "color": "yellow",
+      "fx": 8.004182012415464,
+      "fy": 3.061269706018602,
+      "fz": 0.0
+    },
+    {
+      "id": "529",
+      "label": "429",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "429"
+      },
+      "color": "yellow",
+      "fx": 1.37824092441218,
+      "fy": -3.8805292274666767,
+      "fz": 0.0
+    },
+    {
+      "id": "786",
+      "label": "681",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "681"
+      },
+      "color": "yellow",
+      "fx": -2.626689878421518,
+      "fy": 1.8703904921560064,
+      "fz": 0.0
+    },
+    {
+      "id": "24",
+      "label": "25",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "25"
+      },
+      "color": "yellow",
+      "fx": 4.803348355267628,
+      "fy": 11.117401500682142,
+      "fz": 0.0
+    },
+    {
+      "id": "540",
+      "label": "440",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "440"
+      },
+      "color": "yellow",
+      "fx": -1.2227514499771541,
+      "fy": 4.390564486389962,
+      "fz": 0.0
+    },
+    {
+      "id": "817",
+      "label": "712",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "712"
+      },
+      "color": "yellow",
+      "fx": 8.4587478036826,
+      "fy": -4.791285208899956,
+      "fz": 0.0
+    },
+    {
+      "id": "1073",
+      "label": "965",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "965"
+      },
+      "color": "yellow",
+      "fx": -4.193638755215046,
+      "fy": -0.5947291970843636,
+      "fz": 0.0
+    },
+    {
+      "id": "307",
+      "label": "222",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "222"
+      },
+      "color": "yellow",
+      "fx": -2.537308023894243,
+      "fy": 9.924627183338352,
+      "fz": 0.0
+    },
+    {
+      "id": "566",
+      "label": "466",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "466"
+      },
+      "color": "yellow",
+      "fx": 8.818212298477983,
+      "fy": -2.8924801187854206,
+      "fz": 0.0
+    },
+    {
+      "id": "317",
+      "label": "232",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "232"
+      },
+      "color": "yellow",
+      "fx": 2.5321351265911076,
+      "fy": -0.44212361369820813,
+      "fz": 0.0
+    },
+    {
+      "id": "1089",
+      "label": "981",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "981"
+      },
+      "color": "yellow",
+      "fx": 2.1228373599023227,
+      "fy": 5.383686593263314,
+      "fz": 0.0
+    },
+    {
+      "id": "326",
+      "label": "241",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "241"
+      },
+      "color": "yellow",
+      "fx": 4.103835062779581,
+      "fy": 9.204955753660757,
+      "fz": 0.0
+    },
+    {
+      "id": "1096",
+      "label": "988",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "988"
+      },
+      "color": "yellow",
+      "fx": -2.9515443946836903,
+      "fy": 5.502711628244569,
+      "fz": 0.0
+    },
+    {
+      "id": "1097",
+      "label": "989",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "989"
+      },
+      "color": "yellow",
+      "fx": 2.9774509196525094,
+      "fy": -4.55373791414426,
+      "fz": 0.0
+    },
+    {
+      "id": "350",
+      "label": "350",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C6",
+        "R_RotationAngle": "R4"
+      },
+      "color": "green",
+      "fx": 16.500851541814974,
+      "fy": -14.248043459801822,
+      "fz": -750.0
+    },
+    {
+      "id": "608",
+      "label": "508",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "508"
+      },
+      "color": "yellow",
+      "fx": -0.8892003215004205,
+      "fy": 11.377721497809512,
+      "fz": 0.0
+    },
+    {
+      "id": "352",
+      "label": "352",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C3",
+        "R_RotationAngle": "R1"
+      },
+      "color": "green",
+      "fx": 20.49722244576353,
+      "fy": 15.639274905568541,
+      "fz": -750.0
+    },
+    {
+      "id": "355",
+      "label": "259",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "259"
+      },
+      "color": "yellow",
+      "fx": -3.2638277653453867,
+      "fy": -2.350374322608962,
+      "fz": 0.0
+    },
+    {
+      "id": "626",
+      "label": "524",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "524"
+      },
+      "color": "yellow",
+      "fx": 6.728601597035024,
+      "fy": 1.4327430544619382,
+      "fz": 0.0
+    },
+    {
+      "id": "372",
+      "label": "276",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "276"
+      },
+      "color": "yellow",
+      "fx": -5.198570719680022,
+      "fy": 3.139687215242433,
+      "fz": 0.0
+    },
+    {
+      "id": "391",
+      "label": "295",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "295"
+      },
+      "color": "yellow",
+      "fx": -3.9011876068183393,
+      "fy": 9.166325865647117,
+      "fz": 0.0
+    },
+    {
+      "id": "904",
+      "label": "798",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "798"
+      },
+      "color": "yellow",
+      "fx": 2.2482098017519405,
+      "fy": 6.218218130510843,
+      "fz": 0.0
+    },
+    {
+      "id": "145",
+      "label": "145",
+      "type": "Shape_Parameters",
+      "labels": [
+        "Shape_Parameters"
+      ],
+      "properties": {
+        "S1_LongMajorAxis": "S11",
+        "S2_ShortMajorAxis": "S24",
+        "A_Area": "A6"
+      },
+      "color": "blue",
+      "fx": 15.120108595045206,
+      "fy": 17.171502444985222,
+      "fz": -500.0
+    },
+    {
+      "id": "690",
+      "label": "588",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "588"
+      },
+      "color": "yellow",
+      "fx": 4.929806329092404,
+      "fy": -6.0181121033462635,
+      "fz": 0.0
+    },
+    {
+      "id": "179",
+      "label": "179",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C3",
+        "R_RotationAngle": "R4"
+      },
+      "color": "green",
+      "fx": 23.30332206521149,
+      "fy": 10.259853887945729,
+      "fz": -750.0
+    },
+    {
+      "id": "180",
+      "label": "180",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C6",
+        "R_RotationAngle": "R5"
+      },
+      "color": "green",
+      "fx": 17.210259081921674,
+      "fy": 19.377534252357982,
+      "fz": -750.0
+    },
+    {
+      "id": "183",
+      "label": "183",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C4",
+        "R_RotationAngle": "R3"
+      },
+      "color": "green",
+      "fx": 8.065125695172245,
+      "fy": 23.642428599993977,
+      "fz": -750.0
+    },
+    {
+      "id": "184",
+      "label": "184",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C1",
+        "R_RotationAngle": "R4"
+      },
+      "color": "green",
+      "fx": -18.357940104555034,
+      "fy": -8.072359592228157,
+      "fz": -750.0
+    },
+    {
+      "id": "185",
+      "label": "185",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C4",
+        "R_RotationAngle": "R2"
+      },
+      "color": "green",
+      "fx": -20.000233991893555,
+      "fy": -3.381326538000244,
+      "fz": -750.0
+    },
+    {
+      "id": "954",
+      "label": "848",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "848"
+      },
+      "color": "yellow",
+      "fx": -0.6418484606253008,
+      "fy": -2.6934138231016385,
+      "fz": 0.0
+    },
+    {
+      "id": "189",
+      "label": "189",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C3",
+        "R_RotationAngle": "R2"
+      },
+      "color": "green",
+      "fx": 23.03558965404434,
+      "fy": -4.696833235145513,
+      "fz": -750.0
+    },
+    {
+      "id": "193",
+      "label": "193",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C2",
+        "R_RotationAngle": "R2"
+      },
+      "color": "green",
+      "fx": -16.223097220506208,
+      "fy": 13.390535031167406,
+      "fz": -750.0
+    },
+    {
+      "id": "194",
+      "label": "194",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C5",
+        "R_RotationAngle": "R3"
+      },
+      "color": "green",
+      "fx": -10.800449197974654,
+      "fy": 20.522606608253938,
+      "fz": -750.0
+    },
+    {
+      "id": "453",
+      "label": "357",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "357"
+      },
+      "color": "yellow",
+      "fx": 2.3635245747724025,
+      "fy": 11.308426711560159,
+      "fz": 0.0
+    },
+    {
+      "id": "454",
+      "label": "358",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "358"
+      },
+      "color": "yellow",
+      "fx": 8.748022437710471,
+      "fy": -0.37469189660322155,
+      "fz": 0.0
+    },
+    {
+      "id": "198",
+      "label": "198",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C2",
+        "R_RotationAngle": "R6"
+      },
+      "color": "green",
+      "fx": -20.113094834690006,
+      "fy": 8.13732883397932,
+      "fz": -750.0
+    },
+    {
+      "id": "200",
+      "label": "200",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C3",
+        "R_RotationAngle": "R3"
+      },
+      "color": "green",
+      "fx": 13.362798579900836,
+      "fy": 20.82148067528187,
+      "fz": -750.0
+    },
+    {
+      "id": "197",
+      "label": "197",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C4",
+        "R_RotationAngle": "R1"
+      },
+      "color": "green",
+      "fx": 13.34789449984174,
+      "fy": -17.590897683509738,
+      "fz": -750.0
+    },
+    {
+      "id": "201",
+      "label": "201",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C1",
+        "R_RotationAngle": "R3"
+      },
+      "color": "green",
+      "fx": 1.0823651399832417,
+      "fy": -20.286526726390118,
+      "fz": -750.0
+    },
+    {
+      "id": "204",
+      "label": "204",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C2",
+        "R_RotationAngle": "R5"
+      },
+      "color": "green",
+      "fx": 24.02490265357171,
+      "fy": 5.271857123256849,
+      "fz": -750.0
+    },
+    {
+      "id": "205",
+      "label": "205",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C2",
+        "R_RotationAngle": "R3"
+      },
+      "color": "green",
+      "fx": -3.6700464830358963,
+      "fy": -19.79585653637171,
+      "fz": -750.0
+    },
+    {
+      "id": "206",
+      "label": "206",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C1",
+        "R_RotationAngle": "R2"
+      },
+      "color": "green",
+      "fx": -12.281855260382912,
+      "fy": -14.31830060424198,
+      "fz": -750.0
+    },
+    {
+      "id": "978",
+      "label": "872",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "872"
+      },
+      "color": "yellow",
+      "fx": 7.847302563076106,
+      "fy": 1.7494086678847374,
+      "fz": 0.0
+    },
+    {
+      "id": "211",
+      "label": "211",
+      "type": "Stress_Status",
+      "labels": [
+        "Stress_Status"
+      ],
+      "properties": {
+        "Status": "small"
+      },
+      "color": "red",
+      "fx": 0.2,
+      "fy": 0.0,
+      "fz": 500.0
+    },
+    {
+      "id": "212",
+      "label": "212",
+      "type": "Stress_Status",
+      "labels": [
+        "Stress_Status"
+      ],
+      "properties": {
+        "Status": "medium"
+      },
+      "color": "red",
+      "fx": -0.2,
+      "fy": 2.4492935982947065e-17,
+      "fz": 500.0
+    },
+    {
+      "id": "210",
+      "label": "210",
+      "type": "Position_Parameters",
+      "labels": [
+        "Position_Parameters"
+      ],
+      "properties": {
+        "C_EllipseCnter": "C5",
+        "R_RotationAngle": "R4"
+      },
+      "color": "green",
+      "fx": 23.800060231520654,
+      "fy": 2.4048961258704042,
+      "fz": -750.0
+    },
+    {
+      "id": "477",
+      "label": "381",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "381"
+      },
+      "color": "yellow",
+      "fx": 11.889437406003502,
+      "fy": 0.4816925671662663,
+      "fz": 0.0
+    },
+    {
+      "id": "738",
+      "label": "636",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "636"
+      },
+      "color": "yellow",
+      "fx": 10.862453495720281,
+      "fy": 4.073862914656018,
+      "fz": 0.0
+    },
+    {
+      "id": "491",
+      "label": "391",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "391"
+      },
+      "color": "yellow",
+      "fx": -0.5176085263117115,
+      "fy": -0.943429421197254,
+      "fz": 0.0
+    },
+    {
+      "id": "239",
+      "label": "154",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "154"
+      },
+      "color": "yellow",
+      "fx": -5.429033224371526,
+      "fy": 5.299875420196192,
+      "fz": 0.0
+    },
+    {
+      "id": "503",
+      "label": "403",
+      "type": "ID",
+      "labels": [
+        "ID"
+      ],
+      "properties": {
+        "id": "403"
+      },
+      "color": "yellow",
+      "fx": 5.62479684630676,
+      "fy": 2.640537494005637,
+      "fz": 0.0
+    }
+  ],
+  "links": [
+    {
+      "source": "1029",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "1029",
+      "target": "204",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "1029",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "1034",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "1034",
+      "target": "350",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "1034",
+      "target": "212",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "529",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "529",
+      "target": "189",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "529",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "786",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "786",
+      "target": "197",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "786",
+      "target": "212",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "24",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "24",
+      "target": "194",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "24",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "540",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "540",
+      "target": "197",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "540",
+      "target": "212",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "817",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "817",
+      "target": "205",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "817",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "1073",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "1073",
+      "target": "206",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "1073",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "307",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "307",
+      "target": "193",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "307",
+      "target": "212",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "566",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "566",
+      "target": "189",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "566",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "317",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "317",
+      "target": "194",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "317",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "1089",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "1089",
+      "target": "200",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "1089",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "326",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "326",
+      "target": "352",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "326",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "1096",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "1096",
+      "target": "194",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "1096",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "1097",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "1097",
+      "target": "206",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "1097",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "608",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "608",
+      "target": "180",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "608",
+      "target": "212",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "355",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "355",
+      "target": "198",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "355",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "626",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "626",
+      "target": "180",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "626",
+      "target": "212",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "372",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "372",
+      "target": "185",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "372",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "391",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "391",
+      "target": "183",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "391",
+      "target": "212",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "904",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "904",
+      "target": "189",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "904",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "690",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "690",
+      "target": "201",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "690",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "954",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "954",
+      "target": "184",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "954",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "453",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "453",
+      "target": "179",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "453",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "454",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "454",
+      "target": "200",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "454",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "978",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "978",
+      "target": "197",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "978",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "477",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "477",
+      "target": "180",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "477",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "738",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "738",
+      "target": "210",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "738",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "491",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "491",
+      "target": "179",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "491",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "239",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "239",
+      "target": "194",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "239",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    },
+    {
+      "source": "503",
+      "target": "145",
+      "type": "HAS_SHAPE_PARAMETERS",
+      "color": "blue"
+    },
+    {
+      "source": "503",
+      "target": "352",
+      "type": "HAS_POSITION_PARAMETERS",
+      "color": "green"
+    },
+    {
+      "source": "503",
+      "target": "211",
+      "type": "HAS_STRESS_STATUS",
+      "color": "red"
+    }
+  ]
+}

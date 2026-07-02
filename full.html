@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>2D Graph</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: #111;
+      font-family: Menlo;
+    }
+
+    #graph {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+
+
+
+  <script src="force-graph.min.js"></script>
+</head>
+
+<body>
+  <div id="graph"></div>
+
+  <button id="savePng"
+  style="
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+    padding: 6px 10px;
+    font-family: Menlo;
+  ">
+  Save PNG
+</button>
+
+  <script>
+    // --------------------------------------------------
+    // Image mapping by node type
+    // --------------------------------------------------
+    const NODE_TYPE_IMAGE = {
+      Stress_Status:        "imgs/b.png",
+      Shape_Parameters:    "imgs/c.png",
+      Position_Parameters: "imgs/a.png",
+      ID:                  "imgs/d.png"
+    };
+
+    const DEFAULT_IMAGE = "imgs/default.png";
+
+    const NODE_TYPE_SIZE = {
+  Stress_Status:        30,
+  Shape_Parameters:    20,
+  Position_Parameters: 20,
+  ID:                  10
+};
+
+const DEFAULT_NODE_SIZE = 16;
+
+
+    // preload images
+    const imageCache = {};
+    Object.values(NODE_TYPE_IMAGE).concat(DEFAULT_IMAGE).forEach(src => {
+      const img = new Image();
+      img.src = src;
+      imageCache[src] = img;
+    });
+
+    // --------------------------------------------------
+    // Edge styling
+    // --------------------------------------------------
+const EDGE_TYPE_STYLE = {
+  HAS_STRESS_STATUS: {
+    color: "rgb(176, 5, 5)",
+    curvature: 0.15,
+    arrowRelPos: 0.82,
+    arrowLength: 10
+  },
+  HAS_SHAPE_PARAMETERS: {
+    color: "rgb(43, 77, 183)",
+    curvature: 0.15,
+    arrowRelPos: 0.97,
+    arrowLength: 10
+  },
+  HAS_POSITION_PARAMETERS: {
+    color: "rgb(44, 101, 28)",
+    curvature: 0.15,
+    arrowRelPos: 0.97,
+    arrowLength: 10
+  }
+};
+
+
+    const DEFAULT_EDGE_COLOR = "rgb(120,120,120)";
+
+    // --------------------------------------------------
+    // Graph init
+    // --------------------------------------------------
+    const Graph = new ForceGraph()(document.getElementById('graph'))
+      .backgroundColor("#fff")
+
+      // --------------------------------------------------
+      // Nodes: draw images
+      // --------------------------------------------------
+      .nodeLabel(n => n.label ?? n.id)
+
+.nodeCanvasObject((node, ctx, globalScale) => {
+  const baseSize =
+    NODE_TYPE_SIZE[node.type] ?? DEFAULT_NODE_SIZE;
+
+  const size = baseSize / globalScale;
+
+  const imgSrc = NODE_TYPE_IMAGE[node.type] ?? DEFAULT_IMAGE;
+  const img = imageCache[imgSrc];
+
+  if (!img || !img.complete) return;
+
+  ctx.drawImage(
+    img,
+    node.x - size / 2,
+    node.y - size / 2,
+    size,
+    size
+  );
+})
+
+
+      // interaction area
+.nodePointerAreaPaint((node, color, ctx) => {
+  const baseSize =
+    NODE_TYPE_SIZE[node.type] ?? DEFAULT_NODE_SIZE;
+
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.arc(node.x, node.y, baseSize, 0, 2 * Math.PI);
+  ctx.fill();
+})
+
+      // --------------------------------------------------
+      // Edges
+      // --------------------------------------------------
+      .linkLabel(l => l.type ?? "")
+      .linkColor(l => EDGE_TYPE_STYLE[l.type]?.color ?? DEFAULT_EDGE_COLOR)
+      .linkWidth(0.15)
+.linkCurvature(l =>
+  EDGE_TYPE_STYLE[l.type]?.curvature ?? 0
+)
+
+.linkDirectionalArrowRelPos(l =>
+  EDGE_TYPE_STYLE[l.type]?.arrowRelPos ?? 0.9
+)
+
+.linkDirectionalArrowLength(l =>
+  EDGE_TYPE_STYLE[l.type]?.arrowLength ?? 40
+)
+      .linkDirectionalParticles(0)
+
+      // --------------------------------------------------
+      // Fix node on drag end
+      // --------------------------------------------------
+      .onNodeDragEnd(node => {
+        node.fx = node.x;
+        node.fy = node.y;
+      });
+
+    // --------------------------------------------------
+    // Physics
+    // --------------------------------------------------
+    Graph.d3Force('link').distance(link => {
+      if (link.type === 'HAS_STRESS_STATUS') return 600;
+      if (link.type === 'HAS_SHAPE_PARAMETERS') return 800;
+      if (link.type === 'HAS_POSITION_PARAMETERS') return 800;
+      return 180;
+    });
+
+    Graph.d3Force('charge').strength(-1000);
+
+    // --------------------------------------------------
+    // Load graph data
+    // --------------------------------------------------
+    fetch("graph_export_full.json")
+      .then(res => res.json())
+      .then(data => {
+
+        data.nodes.forEach(n => {
+          if (Array.isArray(n.labels) && n.labels.length > 0) {
+            n.type = n.labels[0];
+          }
+
+          // initial positions
+          if (n.fx !== undefined) {
+            n.x = n.fx;
+            n.y = n.fy;
+          }
+
+          delete n.fx;
+          delete n.fy;
+          delete n.fz;
+        });
+
+        Graph.graphData(data);
+
+        // early fit
+        setTimeout(() => {
+          Graph.zoomToFit(400);
+        }, 300);
+
+        // final fit
+        Graph.onEngineStop(() => {
+          Graph.zoomToFit(400);
+        });
+      });
+
+      //the function to keep the graph square
+      function resizeSquare() {
+  const size = Math.min(window.innerWidth, window.innerHeight);
+  Graph.width(size);
+  Graph.height(size);
+}
+
+resizeSquare();
+window.addEventListener('resize', resizeSquare);
+
+
+
+function saveCanvasTransparentPNG(filename = "graph.png") {
+    const srcCanvas = document
+      .getElementById("graph")
+      .querySelector("canvas");
+
+    const w = srcCanvas.width;
+    const h = srcCanvas.height;
+
+    // create offscreen canvas
+    const out = document.createElement("canvas");
+    out.width = w;
+    out.height = h;
+
+    const ctx = out.getContext("2d");
+
+    // IMPORTANT: do NOT paint a background
+    ctx.clearRect(0, 0, w, h);
+
+    // copy current view
+    ctx.drawImage(srcCanvas, 0, 0);
+
+    // export
+    const link = document.createElement("a");
+    link.download = filename;
+    link.href = out.toDataURL("image/png");
+    link.click();
+  }
+
+  document
+    .getElementById("savePng")
+    .addEventListener("click", () =>
+      saveCanvasTransparentPNG("graph.png")
+    );
+    
+  </script>
+</body>
+</html>

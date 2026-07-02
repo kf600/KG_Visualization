@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knowledge Graph — Interactive Visualization</title>
+  <style>
+    :root { --fg:#1b1b1f; --muted:#666; --line:#e3e3e8; --accent:#2b4db7; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--fg);
+      background: #fafafb;
+      line-height: 1.55;
+    }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 48px 24px 80px; }
+    h1 { font-size: 28px; margin: 0 0 8px; }
+    .sub { color: var(--muted); margin: 0 0 32px; font-size: 15px; }
+    .hint {
+      background: #fff; border: 1px solid var(--line); border-radius: 10px;
+      padding: 14px 18px; font-size: 14px; color: #444; margin-bottom: 32px;
+    }
+    .hint b { color: var(--fg); }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 620px) { .grid { grid-template-columns: 1fr; } }
+    a.card {
+      display: block; text-decoration: none; color: inherit;
+      background: #fff; border: 1px solid var(--line); border-radius: 12px;
+      padding: 20px; transition: box-shadow .15s, border-color .15s, transform .05s;
+    }
+    a.card:hover { box-shadow: 0 6px 22px rgba(0,0,0,.08); border-color: #c9c9d4; }
+    a.card:active { transform: translateY(1px); }
+    .card h2 { font-size: 18px; margin: 0 0 6px; }
+    .card p { margin: 0; font-size: 14px; color: var(--muted); }
+    .tag {
+      display: inline-block; font-size: 12px; color: var(--accent);
+      border: 1px solid #c7d0ee; background: #eef2fc; border-radius: 999px;
+      padding: 1px 10px; margin-bottom: 10px;
+    }
+    footer { margin-top: 40px; font-size: 13px; color: var(--muted); }
+    code { background: #f0f0f3; padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Knowledge Graph — Interactive Visualization</h1>
+    <p class="sub">Supplementary interactive material. Open any view below, then <b>drag</b> nodes, <b>scroll</b> to zoom, and <b>hover</b> for details.</p>
+
+    <div class="hint">
+      <b>How to interact:</b> drag the background to pan &nbsp;·&nbsp; scroll / pinch to zoom &nbsp;·&nbsp;
+      drag a node to reposition it (it stays fixed) &nbsp;·&nbsp; hover a node or edge to see its value / relation type &nbsp;·&nbsp;
+      use <b>Fit to Canvas</b> to recenter.
+    </div>
+
+    <div class="grid">
+      <a class="card" href="full.html">
+        <span class="tag">Complete graph</span>
+        <h2>Full Knowledge Graph</h2>
+        <p>The complete graph with all nodes and relations.</p>
+      </a>
+
+      <a class="card" href="one_node.html">
+        <span class="tag">Schematic</span>
+        <h2>Single-Unit Structure</h2>
+        <p>The minimal structural motif, with relation labels drawn on edges.</p>
+      </a>
+
+      <a class="card" href="example1.html">
+        <span class="tag">Subgraph</span>
+        <h2>Example 1</h2>
+        <p>A representative subgraph extracted from the full graph.</p>
+      </a>
+
+      <a class="card" href="example2.html">
+        <span class="tag">Subgraph</span>
+        <h2>Example 2</h2>
+        <p>A second representative subgraph.</p>
+      </a>
+    </div>
+
+    <footer>
+      Built with <a href="https://github.com/vasturiano/force-graph">force-graph</a> (bundled locally, no external CDN required).
+      See <code>README.md</code> for how to run locally.
+    </footer>
+  </div>
+</body>
+</html>

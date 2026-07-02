@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>2D Graph</title>
+  <link href="https://fonts.googleapis.com/css2?family=STIX+Two+Math&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: #111;
+      font-family: Menlo;
+    }
+    #graph {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <script src="force-graph.min.js"></script>
+</head>
+
+<body>
+  <div id="graph"></div>
+
+  <button id="savePng"
+  style="
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+    padding: 6px 10px;
+    font-family: Menlo;
+  ">
+  Save PNG
+</button>
+
+<button id="fitCanvas"
+  style="
+    position: fixed;
+    top: 12px;
+    right: 96px;
+    z-index: 10;
+    padding: 6px 10px;
+    font-family: Menlo;
+  ">
+  Fit to Canvas
+</button>
+
+  <script>
+    // --------------------------------------------------
+    // Label display toggle
+    // --------------------------------------------------
+    const SHOW_PROPERTY_VALUES = true; // <-- toggle on/off
+    const DRAW_TEXT_LABELS = true; 
+
+    // --------------------------------------------------
+    // ID image overlay toggle
+    // --------------------------------------------------
+    const SHOW_ID_OVERLAY_IMAGES = true;   // <-- master switch: 修改为 true 开启显示
+    const ID_IMAGE_DIR = "./fig";        // <-- 修改为 ./fig 文件夹
+    const ID_IMAGE_EXT = ".png";
+    const ID_IMAGE_SIZE = 38;              // base size in px (pre-scale)
+
+    function extractPropertyValues(node) {
+      if (!node.properties || typeof node.properties !== "object") return "";
+
+      const values = Object.values(node.properties)
+        .filter(v => v !== null && v !== undefined);
+
+      return values.join(", ");
+    }
+
+    // --------------------------------------------------
+    // Image mapping by node type
+    // --------------------------------------------------
+    const NODE_TYPE_IMAGE = {
+      Stress_Status:        "imgs/b.png",
+      Shape_Parameters:    "imgs/c.png",
+      Position_Parameters: "imgs/a.png",
+      ID:                  "imgs/d_white.png"
+    };
+
+    const DEFAULT_IMAGE = "imgs/default.png";
+
+    // 【修改1：放大这里各类型节点的数值以调整图片大小】
+    const NODE_TYPE_SIZE = {
+      Stress_Status:        60,  // 原为 40
+      Shape_Parameters:     60,  // 原为 40
+      Position_Parameters:  60,  // 原为 40
+      ID:                   65   // 原为 45
+    };
+
+    const DEFAULT_NODE_SIZE = 24; // 原为 16
+
+    // preload images
+    const imageCache = {};
+    Object.values(NODE_TYPE_IMAGE).concat(DEFAULT_IMAGE).forEach(src => {
+      const img = new Image();
+      img.src = src;
+      imageCache[src] = img;
+    });
+
+    // --------------------------------------------------
+    // ID overlay image cache
+    // --------------------------------------------------
+    const idImageCache = {};
+
+    function getIdImage(id) {
+      if (!SHOW_ID_OVERLAY_IMAGES) return null;
+
+      const rawKey = String(id);
+      
+      const match = rawKey.match(/\d+/);
+      const numericKey = match ? match[0] : rawKey;
+
+      if (idImageCache[numericKey]) return idImageCache[numericKey];
+
+      const img = new Image();
+      img.src = `${ID_IMAGE_DIR}/${numericKey}${ID_IMAGE_EXT}`;
+      
+      img.onerror = () => console.error(`[加载失败 404] 找不到图片，尝试的路径是: ${img.src}`);
+      img.onload = () => console.log(`[加载成功] 图片已读取: ${img.src}`);
+      
+      idImageCache[numericKey] = img;
+
+      return img;
+    }
+
+    // --------------------------------------------------
+    // Edge styling
+    // --------------------------------------------------
+    const EDGE_TYPE_STYLE = {
+      HAS_STRESS_STATUS: {
+        color: "rgb(176, 5, 5)",
+        curvature: 0.15,
+        arrowRelPos: 0.995,
+        arrowLength: 12
+      },
+      HAS_SHAPE_PARAMETERS: {
+        color: "rgb(43, 77, 183)",
+        curvature: 0.15,
+        arrowRelPos: 0.995,
+        arrowLength: 12
+      },
+      HAS_POSITION_PARAMETERS: {
+        color: "rgb(44, 101, 28)",
+        curvature: 0.15,
+        arrowRelPos: 0.995,
+        arrowLength: 12
+      }
+    };
+
+    const DEFAULT_EDGE_COLOR = "rgb(120,120,120)";
+
+    // --------------------------------------------------
+    // Graph init
+    // --------------------------------------------------
+    const Graph = new ForceGraph()(document.getElementById('graph'))
+      .backgroundColor("#fff")
+
+      // --------------------------------------------------
+      // Nodes: draw images
+      // --------------------------------------------------
+      .nodeLabel(n => {
+        if (!SHOW_PROPERTY_VALUES) {
+          return n.label ?? n.id;
+        }
+
+        const propText = extractPropertyValues(n);
+        if (propText.length === 0) {
+          return n.label ?? n.id;
+        }
+
+        return propText;
+      })
+
+      .nodeCanvasObject((node, ctx, globalScale) => {
+        const baseSize = NODE_TYPE_SIZE[node.type] ?? DEFAULT_NODE_SIZE;
+        const size = baseSize / globalScale;
+
+        // ---- draw icon ----
+        const imgSrc = NODE_TYPE_IMAGE[node.type] ?? DEFAULT_IMAGE;
+        const img = imageCache[imgSrc];
+
+        if (img && img.complete) {
+          ctx.drawImage(
+            img,
+            node.x - size / 2,
+            node.y - size / 2,
+            size,
+            size
+          );
+        }
+
+        // 这里的 node.type==="ID" 会覆盖前面 nodeCanvasObject 的执行逻辑
+        if (SHOW_ID_OVERLAY_IMAGES && node.type === "ID") {
+          const imageKey = node.label !== undefined ? node.label : node.id;
+          const overlayImg = getIdImage(imageKey);
+
+          if (overlayImg && overlayImg.complete) {
+            const overlaySize = ID_IMAGE_SIZE / globalScale;
+            ctx.drawImage(
+              overlayImg,
+              node.x - overlaySize / 2,
+              node.y - overlaySize / 2,
+              overlaySize,
+              overlaySize
+            );
+          }
+        }
+
+        if (!DRAW_TEXT_LABELS) return;
+
+        // ---- label text ----
+        let text = "";
+        if (SHOW_PROPERTY_VALUES) {
+          text = extractPropertyValues(node);
+        } else {
+          text = node.label ?? node.id;
+        }
+
+        if (!text) return;
+
+        // 【修改2：调大节点下方文字的字号】将原先的 15 调大为 20（可按需继续增大）
+        const fontSize = 20 / globalScale;
+        // 如果想让节点文字也加粗，可以在 ${fontSize}px 前面加上 bold，例如 `bold ${fontSize}px ...`
+        ctx.font = `${fontSize}px "STIX Two Math"`;
+        ctx.textAlign = "center";
+        ctx.textBaseline = "top";
+
+        const padding = 3 / globalScale;
+        const metrics = ctx.measureText(text);
+        const textWidth = metrics.width;
+        const textHeight = fontSize;
+
+        const x = node.x;
+        const y = node.y + size / 2 + 5 / globalScale;
+
+        // ---- white background ----
+        ctx.fillStyle = "rgba(255,255,255,0.70)";
+        ctx.fillRect(
+          x - textWidth / 2 - padding,
+          y - padding,
+          textWidth + 2 * padding,
+          textHeight + 2 * padding
+        );
+
+        // ---- text ----
+        ctx.fillStyle = "#000";
+        ctx.fillText(text, x, y);
+      })
+
+      // interaction area
+      .nodePointerAreaPaint((node, color, ctx) => {
+        const baseSize = NODE_TYPE_SIZE[node.type] ?? DEFAULT_NODE_SIZE;
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, baseSize, 0, 2 * Math.PI);
+        ctx.fill();
+      })
+
+      // --------------------------------------------------
+      // Edges (Links)
+      // --------------------------------------------------
+      .linkLabel(l => l.type ?? "")
+      .linkColor(l => EDGE_TYPE_STYLE[l.type]?.color ?? DEFAULT_EDGE_COLOR)
+      .linkWidth(2)
+      .linkCurvature(l => EDGE_TYPE_STYLE[l.type]?.curvature ?? 0)
+      .linkDirectionalArrowRelPos(l => EDGE_TYPE_STYLE[l.type]?.arrowRelPos ?? 0.9)
+      .linkDirectionalArrowLength(l => EDGE_TYPE_STYLE[l.type]?.arrowLength ?? 40)
+      .linkDirectionalParticles(0)
+      
+      // ===== 新增：在这里将关系的名称绘制到连线上 =====
+      .linkCanvasObjectMode(() => 'after') // 设定在画完线之后绘制文本，避免被线遮挡
+      .linkCanvasObject((link, ctx, globalScale) => {
+        const start = link.source;
+        const end = link.target;
+        
+        // 忽略还没有坐标初始化的节点
+        if (typeof start !== 'object' || typeof end !== 'object') return;
+
+        // 获取连线名字 (Relationship Type)
+        const label = link.type ?? link.label ?? "";
+        if (!label) return;
+
+        // 1. 计算线段两点的距离差和中点
+        const dx = end.x - start.x;
+        const dy = end.y - start.y;
+        const mx = start.x + dx / 2;
+        const my = start.y + dy / 2;
+
+        // 2. 结合曲率计算文字摆放的真实坐标位置
+        const curvature = EDGE_TYPE_STYLE[link.type]?.curvature ?? 0;
+        let textX = mx;
+        let textY = my;
+        
+        if (curvature !== 0) {
+          // 【修改1：缩短文字与线的距离】将原先的 0.5 缩小为 0.25。如果觉得还是远，可以继续调小（如 0.15）
+          textX = mx - dy * curvature * 0.25;
+          textY = my + dx * curvature * 0.25;
+        }
+
+        // 3. 计算文字角度 (让文字顺着线的方向旋转)
+        let textAngle = Math.atan2(dy, dx);
+        // 保持文字正向可读，不倒立
+        if (textAngle > Math.PI / 2) textAngle = -(Math.PI - textAngle);
+        if (textAngle < -Math.PI / 2) textAngle = -(-Math.PI - textAngle);
+
+        // 4. 开始绘制文本
+        // 【修改2：调大字号】从 12 调大为 16
+        const fontSize = 16 / globalScale;
+        // 【修改3：文字加粗】加上了 bold 关键字
+        ctx.font = `bold ${fontSize}px "STIX Two Math"`;
+        const metrics = ctx.measureText(label);
+        const textWidth = metrics.width;
+        const textHeight = fontSize;
+
+        ctx.save();
+        ctx.translate(textX, textY);
+        ctx.rotate(textAngle);
+
+        // 为文字绘制一个带半透明白色的背景框，防止被线穿透影响阅读
+        const padding = 2 / globalScale;
+        ctx.fillStyle = "rgba(255, 255, 255, 0.85)";
+        ctx.fillRect(
+          -textWidth / 2 - padding, 
+          -textHeight / 2 - padding, 
+          textWidth + 2 * padding, 
+          textHeight + 2 * padding
+        );
+
+        // 绘制文字内容，颜色跟随连线颜色
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillStyle = EDGE_TYPE_STYLE[link.type]?.color ?? DEFAULT_EDGE_COLOR;
+        ctx.fillText(label, 0, 0);
+        
+        ctx.restore();
+      })
+
+      // --------------------------------------------------
+      // Fix node on drag end
+      // --------------------------------------------------
+      .onNodeDragEnd(node => {
+        node.fx = node.x;
+        node.fy = node.y;
+      });
+
+    // --------------------------------------------------
+    // Physics
+    // --------------------------------------------------
+    Graph.d3Force('link').distance(link => {
+      if (link.type === 'HAS_STRESS_STATUS') return 200;
+      if (link.type === 'HAS_SHAPE_PARAMETERS') return 200;
+      if (link.type === 'HAS_POSITION_PARAMETERS') return 200;
+      return 180;
+    });
+
+    Graph.d3Force('charge').strength(-1000);
+
+    // --------------------------------------------------
+    // Load graph data
+    // --------------------------------------------------
+    fetch("one_node.json")
+      .then(res => res.json())
+      .then(data => {
+
+        data.nodes.forEach(n => {
+          if (Array.isArray(n.labels) && n.labels.length > 0) {
+            n.type = n.labels[0];
+          }
+
+          // initial positions
+          if (n.fx !== undefined) {
+            n.x = n.fx;
+            n.y = n.fy;
+          }
+
+          delete n.fx;
+          delete n.fy;
+          delete n.fz;
+        });
+
+        Graph.graphData(data);
+
+        // early fit
+        setTimeout(() => {
+          Graph.zoomToFit(400);
+        }, 300);
+
+        // final fit
+        Graph.onEngineStop(() => {
+          Graph.zoomToFit(400);
+        });
+      });
+
+      //the function to keep the graph square
+      function resizeSquare() {
+        const size = Math.min(window.innerWidth, window.innerHeight);
+        Graph.width(size);
+        Graph.height(size);
+      }
+
+      resizeSquare();
+      window.addEventListener('resize', resizeSquare);
+
+      function saveCanvasTransparentPNG(filename = "graph.png") {
+        const srcCanvas = document
+          .getElementById("graph")
+          .querySelector("canvas");
+
+        const w = srcCanvas.width;
+        const h = srcCanvas.height;
+
+        // create offscreen canvas
+        const out = document.createElement("canvas");
+        out.width = w;
+        out.height = h;
+
+        const ctx = out.getContext("2d");
+
+        // IMPORTANT: do NOT paint a background
+        ctx.clearRect(0, 0, w, h);
+
+        // copy current view
+        ctx.drawImage(srcCanvas, 0, 0);
+
+        // export
+        const link = document.createElement("a");
+        link.download = filename;
+        link.href = out.toDataURL("image/png");
+        link.click();
+      }
+
+      document
+        .getElementById("savePng")
+        .addEventListener("click", () =>
+          saveCanvasTransparentPNG("graph.png")
+        );
+        
+      document
+        .getElementById("fitCanvas")
+        .addEventListener("click", () => {
+          Graph.zoomToFit(400);
+        });
+
+  </script>
+</body>
+</html>

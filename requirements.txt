@@ -1,0 +1,13 @@
+# Python dependencies for (re)generating the knowledge-graph data / figures.
+# NOTE: These are NOT required just to VIEW the interactive graphs in a browser.
+#       Viewing only needs a static web server (see README.md).
+#
+# Recommended setup with conda:
+#   conda create -n kg_visualization python=3.11 pip
+#   conda activate kg_visualization
+#   pip install -r requirements.txt
+
+# Pinned to the versions this project was tested with (Python 3.11):
+networkx==3.6.1
+matplotlib==3.11.0
+numpy==2.4.6
